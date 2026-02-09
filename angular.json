@@ -15,7 +15,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "kez",
       "architect": {
         "build": {
           "builder": "@angular/build:application",
@@ -30,7 +30,8 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/styles/styles.scss"
             ]
           },
           "configurations": {
