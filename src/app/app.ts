@@ -1,35 +1,34 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './components/header/header.component';
-import { HeroComponent } from './components/hero/hero.component';
-import { SkillsComponent } from './components/skills/skills.component';
-import { BlogListComponent } from './components/blog-list/blog-list.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { TerminalHeaderComponent } from './shared/components/terminal-header/terminal-header.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
+
 
 @Component({
   selector: 'kez-root',
   standalone: true,
   imports: [
-    RouterOutlet,
-    HeaderComponent,
-    HeroComponent,
-    SkillsComponent,
-    BlogListComponent,
-    FooterComponent
+    RouterOutlet, 
+    TerminalHeaderComponent, 
+    FooterComponent,
   ],
   template: `
-    <app-header></app-header>
-    <main>
-      <app-hero></app-hero>
-      <app-skills></app-skills>
-      <app-blog-list></app-blog-list>
+    <app-terminal-header />
+    <main class="main-content">
+      <router-outlet />
     </main>
-    <app-footer></app-footer>
-    <router-outlet />
+    <app-footer />
   `,
   styles: [`
-    main {
+    :host {
+      display: flex;
+      flex-direction: column;
       min-height: 100vh;
+    }
+    
+    .main-content {
+      flex: 1;
+      padding-top: var(--navbar-height);
     }
   `]
 })

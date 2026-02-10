@@ -1,0 +1,8 @@
+// These are kept only for SCSS mixins and functions
+// All component styles should use CSS custom properties from _tokens.scss
+
+// Breakpoints for mixins
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;

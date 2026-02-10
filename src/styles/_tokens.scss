@@ -1,0 +1,161 @@
+:root {
+  // === BASE FONT SIZE ===
+  // Reduced from 16px to make everything more compact
+  font-size: 14px; // This makes 1rem = 14px instead of 16px
+  
+  // === COLOR SYSTEM ===
+  --color-primary: #4caf50;
+  --color-primary-light: #69f0ae;
+  --color-primary-dark: #388e3c;
+  --color-primary-rgb: 76, 175, 80;
+  
+  --color-accent: #ffc107;
+  --color-accent-light: #ffd54f;
+  --color-accent-dark: #ffa000;
+  --color-accent-rgb: 255, 193, 7;
+  
+  --color-secondary: #00bcd4;
+  --color-secondary-light: #4dd0e1;
+  --color-secondary-dark: #0097a7;
+  
+  --color-bg-primary: #0a0a0a;
+  --color-bg-secondary: #121212;
+  --color-bg-tertiary: #1a1a1a;
+  --color-bg-elevated: #1e1e1e;
+  
+  --color-text-primary: #e0e0e0;
+  --color-text-secondary: #b0b0b0;
+  --color-text-muted: #9e9e9e;
+  --color-text-disabled: #6e6e6e;
+  --color-text-inverse: #1a1a1a;
+  
+  --color-border-primary: rgba(76, 175, 80, 0.25);
+  --color-border-secondary: rgba(255, 255, 255, 0.1);
+  --color-border-focus: rgba(76, 175, 80, 0.5);
+  
+  // === GLASSMORPHISM ===
+  --glass-bg: rgba(18, 18, 18, 0.6);
+  --glass-bg-light: rgba(30, 30, 30, 0.5);
+  --glass-bg-dark: rgba(10, 10, 10, 0.7);
+  --glass-bg-hover: rgba(18, 18, 18, 0.75);
+  --glass-border: rgba(76, 175, 80, 0.25);
+  --glass-border-hover: rgba(76, 175, 80, 0.5);
+  --glass-blur: 16px;
+  --glass-blur-strong: 24px;
+  --glass-blur-subtle: 8px;
+  --glass-shine: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  
+  // === SHADOWS & GLOWS ===
+  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.7);
+  
+  --glow-primary: 0 0 10px rgba(76, 175, 80, 0.5);
+  --glow-primary-md: 0 0 15px rgba(76, 175, 80, 0.6);
+  --glow-primary-lg: 0 0 20px rgba(76, 175, 80, 0.7);
+  --glow-accent: 0 0 10px rgba(255, 193, 7, 0.5);
+  
+  --text-shadow-glow: 0 0 5px rgba(76, 175, 80, 0.5),
+                       0 0 10px rgba(76, 175, 80, 0.4),
+                       0 0 15px rgba(76, 175, 80, 0.3),
+                       0 0 20px rgba(76, 175, 80, 0.2);
+  
+  // === SPACING (More compact) ===
+  --spacing-xs: 0.25rem;    // 3.5px (was 4px)
+  --spacing-sm: 0.5rem;     // 7px (was 8px)
+  --spacing-md: 0.857rem;   // 12px (was 16px)
+  --spacing-lg: 1.286rem;   // 18px (was 24px)
+  --spacing-xl: 1.714rem;   // 24px (was 32px)
+  --spacing-2xl: 2.571rem;  // 36px (was 48px)
+  --spacing-3xl: 3.429rem;  // 48px (was 64px)
+  --spacing-4xl: 5.143rem;  // 72px (was 96px)
+  
+  // === BORDER RADIUS ===
+  --radius-xs: 0.143rem;    // 2px
+  --radius-sm: 0.286rem;    // 4px
+  --radius-md: 0.571rem;    // 8px
+  --radius-lg: 0.857rem;    // 12px
+  --radius-xl: 1.143rem;    // 16px
+  --radius-2xl: 1.714rem;   // 24px
+  --radius-full: 9999px;
+  
+  // === TRANSITIONS ===
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  --transition-bounce: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  // === TYPOGRAPHY ===
+  --font-mono: 'Fira Code', 'JetBrains Mono', 'Courier New', monospace;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  --font-size-xs: 0.857rem;   // 12px (was 0.75rem)
+  --font-size-sm: 1rem;       // 14px (was 0.875rem)
+  --font-size-base: 1.143rem; // 16px (was 1rem)
+  --font-size-lg: 1.286rem;   // 18px (was 1.125rem)
+  --font-size-xl: 1.429rem;   // 20px (was 1.25rem)
+  --font-size-2xl: 1.714rem;  // 24px (was 1.5rem)
+  --font-size-3xl: 2.286rem;  // 32px (was 2rem)
+  --font-size-4xl: 2.857rem;  // 40px (was 2.5rem)
+  --font-size-5xl: 3.429rem;  // 48px (was 3rem)
+  
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  --line-height-tight: 1.2;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.6;
+  --line-height-loose: 1.8;
+  
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+  
+  // === Z-INDEX SCALE ===
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal: 400;
+  --z-popover: 500;
+  --z-tooltip: 600;
+  
+  // === CONTAINER WIDTHS ===
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+  
+  // === TERMINAL SPECIFIC ===
+  --terminal-header-height: 2rem;      // 28px
+  --terminal-dot-size: 0.571rem;       // 8px
+  --terminal-dot-spacing: 0.286rem;    // 4px
+  
+  // === COMPONENT SPECIFIC ===
+  --navbar-height: 4rem;               // 56px (was 70px)
+  --progress-bar-height: 0.571rem;     // 8px
+  --button-height: 2.571rem;           // 36px (was 42px)
+  --input-height: 2.857rem;            // 40px (was 48px)
+}
+
+// Responsive - even more compact on mobile
+@media (max-width: 639px) {
+  :root {
+    font-size: 13px; // Makes everything slightly smaller on mobile
+  }
+}
+
+// Desktop - slightly larger for readability
+@media (min-width: 1024px) {
+  :root {
+    font-size: 14px;
+  }
+}

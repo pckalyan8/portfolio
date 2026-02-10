@@ -1,0 +1,213 @@
+@use 'tokens';
+@use 'mixins' as *;
+@use 'theme';
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px; // Base size
+  scroll-behavior: smooth;
+  // Fix scroll glitch
+  overflow-x: hidden;
+  overflow-y: scroll; // Always show scrollbar to prevent layout shift
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-mono);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  position: relative;
+  
+  // Simpler background - remove heavy gradients that can cause scroll issues
+  background-image: 
+    linear-gradient(rgba(var(--color-primary-rgb), 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--color-primary-rgb), 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-attachment: fixed; // Fix background during scroll
+  
+  // Lighter scanlines effect to prevent scroll glitch
+  &::before {
+    content: '';
+    position: fixed; // Changed from absolute to fixed
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 2px,
+      rgba(0, 0, 0, 0.05) 2px,
+      rgba(0, 0, 0, 0.05) 4px
+    );
+    pointer-events: none;
+    opacity: 0.2; // Reduced from 0.3
+    z-index: var(--z-base);
+  }
+}
+
+// Rest of the styles remain the same...
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+  border-left: 1px solid var(--glass-border);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--color-bg-secondary);
+  box-shadow: var(--glow-primary);
+  
+  &:hover {
+    background: var(--color-primary-light);
+    box-shadow: var(--glow-primary-md);
+  }
+}
+
+::selection {
+  background: rgba(var(--color-primary-rgb), 0.4);
+  color: var(--color-primary-light);
+  text-shadow: var(--glow-primary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--spacing-md);
+}
+
+h1 {
+  @include glow-text;
+  font-size: var(--font-size-5xl);
+  
+  @media (max-width: 639px) {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+h2 {
+  color: var(--color-primary);
+  font-size: var(--font-size-3xl);
+  
+  @media (max-width: 639px) {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+h3 {
+  font-size: var(--font-size-xl);
+  color: var(--color-text-primary);
+}
+
+p {
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-primary);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  
+  &:hover {
+    color: var(--color-primary-light);
+    text-decoration: underline;
+    text-shadow: var(--glow-primary);
+  }
+}
+
+code {
+  font-family: var(--font-mono);
+  background: rgba(var(--color-primary-rgb), 0.15);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.3);
+  font-size: var(--font-size-sm);
+  color: var(--color-primary-light);
+}
+
+.glass-card {
+  @include glass-card;
+  padding: var(--spacing-xl);
+}
+
+.terminal-window {
+  @include terminal-window;
+  padding: var(--spacing-xl);
+  padding-top: calc(var(--spacing-xl) + var(--terminal-header-height));
+}
+
+.glow-text {
+  @include glow-text;
+}
+
+.container {
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+  
+  @media (max-width: 639px) {
+    padding: var(--spacing-md);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(var(--spacing-lg));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: var(--glow-primary);
+  }
+  50% {
+    box-shadow: var(--glow-primary-lg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.glow-pulse {
+  animation: glowPulse 2s ease-in-out infinite;
+}
